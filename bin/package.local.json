@@ -1,0 +1,95 @@
+{
+  "name": "shyntech-reactlib-verifications",
+  "version": "0.0.1",
+  "description": "Made with create-react-library",
+  "author": "Jawad A Bashorun",
+  "license": "MIT",
+  "repository": "Jawad A Bashorun/shyntech-frontend",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepare": "run-s build",
+    "postinstall":"npm run build",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "dependencies": {
+    "animate.css": "file:../../node_modules/animate.css",
+    "axios": "file:../../node_modules/axios",
+    "bootstrap": "file:../../node_modules/bootstrap",
+    "convert-csv-to-json": "file:../../node_modules/convert-csv-to-json",
+    "flv.js": "file:../../node_modules/flv.js",
+    "jquery": "file:../../node_modules/jquery",
+    "lodash": "file:../../node_modules/lodash",
+    "papaparse": "file:../../node_modules/papaparse",
+    "popper.js": "file:../../node_modules/popper.js",
+    "react-dotenv": "file:../../node_modules/react-dotenv",
+    "react-router-dom": "file:../../node_modules/react-router-dom",
+    "selenium-webdriver": "file:../../node_modules/selenium-webdriver",
+    "video-react": "file:../../node_modules/video-react"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "file:../../node_modules/@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-solid-svg-icons": "file:../../node_modules/@fortawesome/free-solid-svg-icons",
+    "@fortawesome/react-fontawesome": "file:../../node_modules/@fortawesome/react-fontawesome",
+    "@testing-library/jest-dom": "file:../../node_modules/@testing-library/jest-dom",
+    "@testing-library/react": "file:../../node_modules/@testing-library/react",
+    "@testing-library/user-event": "file:../../node_modules/@testing-library/user-event",
+    "babel-eslint": "file:../../node_modules/babel-eslint",
+    "cross-env": "file:../../node_modules/cross-env",
+    "eslint": "file:../../node_modules/eslint",
+    "eslint-config-prettier": "file:../../node_modules/eslint-config-prettier",
+    "eslint-config-standard": "file:../../node_modules/eslint-config-standard",
+    "eslint-config-standard-react": "file:../../node_modules/eslint-config-standard-react",
+    "eslint-plugin-import": "file:../../node_modules/eslint-plugin-import",
+    "eslint-plugin-node": "file:../../node_modules/eslint-plugin-node",
+    "eslint-plugin-prettier": "file:../../node_modules/eslint-plugin-prettier",
+    "eslint-plugin-promise": "file:../../node_modules/eslint-plugin-promise",
+    "eslint-plugin-react": "file:../../node_modules/eslint-plugin-react",
+    "eslint-plugin-standard": "file:../../node_modules/eslint-plugin-standard",
+    "gh-pages": "file:../../node_modules/gh-pages",
+    "microbundle-crl": "file:../../node_modules/microbundle-crl",
+    "npm-run-all": "file:../../node_modules/npm-run-all",
+    "prettier": "file:../../node_modules/prettier",
+    "react": "file:../../node_modules/react",
+    "react-dom": "file:../../node_modules/react-dom",
+    "react-scripts": "file:../../node_modules/react-scripts"
+  },
+  "files": [
+    "dist"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "API_URL"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
